@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import com.muffar.dailyclip.domain.model.Movie
 
 @Composable
-fun PopularMoviesContent(
+fun MoviesContent(
     modifier: Modifier = Modifier,
     content: List<Movie>,
 ) {

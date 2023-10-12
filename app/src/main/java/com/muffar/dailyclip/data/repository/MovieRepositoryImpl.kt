@@ -1,6 +1,5 @@
 package com.muffar.dailyclip.data.repository
 
-import android.util.Log
 import com.muffar.dailyclip.data.Resource
 import com.muffar.dailyclip.data.source.remote.MovieApi
 import com.muffar.dailyclip.domain.model.Movie
@@ -16,7 +15,6 @@ class MovieRepositoryImpl(
     private val movieApi: MovieApi,
 ) : MovieRepository {
     override suspend fun getMovies(listType: ListType): Flow<Resource<List<Movie>>> = flow {
-        Log.d("TAG", "getMovies1: ")
         emit(Resource.Loading)
         try {
             val response = when (listType) {
@@ -33,10 +31,8 @@ class MovieRepositoryImpl(
             } else {
                 emit(Resource.Success(emptyList()))
             }
-            Log.d("TAG", "getMovies2: $response")
         } catch (e: Exception) {
             emit(Resource.Error(e.message ?: ""))
-            Log.d("TAG", "getMovies3: ${e.message}")
         }
     }.flowOn(Dispatchers.IO)
 }

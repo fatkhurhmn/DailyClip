@@ -92,7 +92,7 @@ class HomeViewModel @Inject constructor(
 
     fun getTopRatedMovies() {
         viewModelScope.launch {
-            movieUseCases.getMovies(ListType.Popular).onEach { result ->
+            movieUseCases.getMovies(ListType.TopRated).onEach { result ->
                 when (result) {
                     is Resource.Loading -> _topRatedState.value = topRatedState.value.copy(
                         isLoading = true,
@@ -113,13 +113,13 @@ class HomeViewModel @Inject constructor(
 
                     else -> {}
                 }
-            }
+            }.launchIn(viewModelScope)
         }
     }
 
     fun getUpcomingMovies() {
         viewModelScope.launch {
-            movieUseCases.getMovies(ListType.Popular).onEach { result ->
+            movieUseCases.getMovies(ListType.Upcoming).onEach { result ->
                 when (result) {
                     is Resource.Loading -> _upcomingState.value = upcomingState.value.copy(
                         isLoading = true,
@@ -140,7 +140,7 @@ class HomeViewModel @Inject constructor(
 
                     else -> {}
                 }
-            }
+            }.launchIn(viewModelScope)
         }
     }
 }
