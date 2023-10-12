@@ -1,8 +1,10 @@
 package com.muffar.dailyclip.data.source.remote
 
+import com.muffar.dailyclip.data.source.remote.response.MovieDetailResponse
 import com.muffar.dailyclip.data.source.remote.response.MovieItemResponse
 import com.muffar.dailyclip.data.source.remote.response.WrappedPaginationResponse
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface MovieApi {
 
@@ -17,4 +19,9 @@ interface MovieApi {
 
     @GET("movie/upcoming")
     suspend fun getUpcomingMovie(): WrappedPaginationResponse<MovieItemResponse>
+
+    @GET("movie/{movie_id}")
+    suspend fun getMovieDetail(
+        @Path("movie_id") id: Int,
+    ): MovieDetailResponse
 }

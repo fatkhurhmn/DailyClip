@@ -13,6 +13,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
@@ -52,13 +53,21 @@ fun DailyClipApp(
         ),
     )
 
+    val isVisible = remember(key1 = navBackStackEntry) {
+        navBackStackEntry?.destination?.route == Screen.Home.route ||
+                navBackStackEntry?.destination?.route == Screen.Discover.route ||
+                navBackStackEntry?.destination?.route == Screen.Favorite.route
+    }
+
     Scaffold(
         bottomBar = {
-            AppBottomNavigation(
-                navController = navController,
-                bottomNavigationItem = bottomMenuItems,
-                currentDestination = currentDestination
-            )
+            if (isVisible) {
+                AppBottomNavigation(
+                    navController = navController,
+                    bottomNavigationItem = bottomMenuItems,
+                    currentDestination = currentDestination
+                )
+            }
         },
         modifier = modifier
     ) {

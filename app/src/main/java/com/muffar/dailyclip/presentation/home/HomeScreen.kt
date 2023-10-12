@@ -5,29 +5,27 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.paint
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.muffar.dailyclip.R
 import com.muffar.dailyclip.presentation.home.components.HomeSection
+import com.muffar.dailyclip.presentation.home.components.MoviesContent
 import com.muffar.dailyclip.presentation.home.components.MoviesError
 import com.muffar.dailyclip.presentation.home.components.MoviesLoading
 import com.muffar.dailyclip.presentation.home.components.NowPlayingMoviesContent
 import com.muffar.dailyclip.presentation.home.components.NowPlayingMoviesLoading
-import com.muffar.dailyclip.presentation.home.components.MoviesContent
 
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
+    navigateToDetail: (Int) -> Unit,
 ) {
     val nowPlayingState = viewModel.nowPlayingState.value
     val popularState = viewModel.popularState.value
@@ -57,7 +55,9 @@ fun HomeScreen(
             nowPlayingState.nowPlayingMovies?.let {
                 NowPlayingMoviesContent(
                     content = it.subList(0, 10),
-                    onClick = {},
+                    onClick = { movie ->
+                        navigateToDetail(movie.id ?: 0)
+                    },
                 )
             }
 
@@ -79,7 +79,12 @@ fun HomeScreen(
             }
 
             popularState.popularMovies?.let {
-                MoviesContent(content = it)
+                MoviesContent(
+                    content = it,
+                    onClick = { movie ->
+                        navigateToDetail(movie.id ?: 0)
+                    }
+                )
             }
 
             if (popularState.isError) {
@@ -97,7 +102,12 @@ fun HomeScreen(
             }
 
             topRatedState.topRatedMovies?.let {
-                MoviesContent(content = it)
+                MoviesContent(
+                    content = it,
+                    onClick = { movie ->
+                        navigateToDetail(movie.id ?: 0)
+                    }
+                )
             }
 
             if (topRatedState.isError) {
@@ -115,7 +125,12 @@ fun HomeScreen(
             }
 
             upcomingState.upcomingMovies?.let {
-                MoviesContent(content = it)
+                MoviesContent(
+                    content = it,
+                    onClick = { movie ->
+                        navigateToDetail(movie.id ?: 0)
+                    }
+                )
             }
 
             if (upcomingState.isError) {

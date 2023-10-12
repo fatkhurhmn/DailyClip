@@ -13,6 +13,7 @@ import com.muffar.dailyclip.domain.model.Movie
 fun MoviesContent(
     modifier: Modifier = Modifier,
     content: List<Movie>,
+    onClick: (Movie) -> Unit,
 ) {
     LazyRow(
         modifier = modifier,
@@ -24,7 +25,9 @@ fun MoviesContent(
                 title = movie.title ?: "",
                 poster = movie.poster ?: "",
                 rating = String.format("%.1f", movie.rating).toDouble(),
-                onClick = {}
+                onClick = {
+                    onClick(movie)
+                }
             )
         }
     }

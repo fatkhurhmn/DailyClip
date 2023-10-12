@@ -3,6 +3,7 @@ package com.muffar.dailyclip.di
 import com.muffar.dailyclip.data.repository.MovieRepositoryImpl
 import com.muffar.dailyclip.data.source.remote.MovieApi
 import com.muffar.dailyclip.domain.repository.MovieRepository
+import com.muffar.dailyclip.domain.usescase.GetMovieDetail
 import com.muffar.dailyclip.domain.usescase.GetMovies
 import com.muffar.dailyclip.domain.usescase.MovieUseCases
 import dagger.Module
@@ -27,6 +28,7 @@ object AppModule {
         movieRepository: MovieRepository,
     ): MovieUseCases =
         MovieUseCases(
-            getMovies = GetMovies(movieRepository)
+            getMovies = GetMovies(movieRepository),
+            getMovieDetail = GetMovieDetail(movieRepository)
         )
 }

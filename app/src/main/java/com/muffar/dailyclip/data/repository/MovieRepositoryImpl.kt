@@ -35,4 +35,15 @@ class MovieRepositoryImpl(
             emit(Resource.Error(e.message ?: ""))
         }
     }.flowOn(Dispatchers.IO)
+
+    override suspend fun getMovieDetail(id: Int): Flow<Resource<Movie>> = flow {
+        emit(Resource.Loading)
+        try {
+            val response = movieApi.getMovieDetail(id)
+            val data = DataMapper.mapMovieDetailResponseToMovie(response)
+            emit(Resource.Success(data))
+        } catch (e: Exception) {
+            emit(Resource.Error(e.message ?: ""))
+        }
+    }
 }
