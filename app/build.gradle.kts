@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.konan.properties.Properties
+import java.io.FileInputStream
+
 plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
@@ -5,6 +8,10 @@ plugins {
     kotlin(Plugins.kapt)
     id(Plugins.ksp)
 }
+
+val localPropertiesFile = rootProject.file("local.properties")
+val localProperties = Properties()
+localProperties.load(FileInputStream(localPropertiesFile))
 
 android {
     namespace = AndroidConfig.id
@@ -21,6 +28,11 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField("String", "API_KEY", localProperties.getProperty("API_KEY"))
+        buildConfigField("String", "BASE_URL_API", localProperties.getProperty("BASE_URL_API"))
+        buildConfigField("String", "BASE_URL_API", localProperties.getProperty("BASE_URL_API"))
+        android.buildFeatures.buildConfig = true
     }
 
     buildTypes {

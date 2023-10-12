@@ -56,7 +56,7 @@ object Libraries {
     const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.logginInterceptor}"
 
     const val pagination = "androidx.paging:paging-runtime:${Versions.pagination}"
-    const val paginationCompose = "androidx.paging:paging-compose${Versions.pagination}"
+    const val paginationCompose = "androidx.paging:paging-compose:${Versions.pagination}"
 
     const val room = "androidx.room:room-runtime:${Versions.room}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
