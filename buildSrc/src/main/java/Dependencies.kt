@@ -13,6 +13,21 @@ object Versions {
     const val espressoCore = "3.5.1"
 
     const val accompanistSystemUiController = "0.28.0"
+
+    const val daggerHilt = "2.44.2"
+    const val hiltCompiler = "1.0.0"
+    const val hiltNavigation = "1.0.0"
+
+    const val retrofit = "2.9.0"
+    const val logginInterceptor = "5.0.0-alpha.6"
+
+    const val pagination = "3.2.1"
+
+    const val room = "2.5.2"
+
+    const val coil = "2.4.0"
+
+    const val shimmer = "1.0.3"
 }
 
 object Libraries {
@@ -30,6 +45,26 @@ object Libraries {
     const val materialIcon = "androidx.compose.material:material-icons-extended:${Versions.materialIcon}"
 
     const val accompanistSystemUiController = "com.google.accompanist:accompanist-systemuicontroller:${Versions.accompanistSystemUiController}"
+
+    const val daggerHilt = "com.google.dagger:hilt-android:${Versions.daggerHilt}"
+    const val daggerHiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}"
+    const val hiltCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltCompiler}"
+    const val hiltNavigation = "androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigation}"
+
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val converterGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.logginInterceptor}"
+
+    const val pagination = "androidx.paging:paging-runtime:${Versions.pagination}"
+    const val paginationCompose = "androidx.paging:paging-compose${Versions.pagination}"
+
+    const val room = "androidx.room:room-runtime:${Versions.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+
+    const val coil = "io.coil-kt:coil-compose:${Versions.coil}"
+
+    const val shimmer = "com.valentinilk.shimmer:compose-shimmer:${Versions.shimmer}"
 }
 
 object TestLibraries {

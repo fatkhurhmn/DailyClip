@@ -1,6 +1,9 @@
 plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
+    id(Plugins.daggerHilt)
+    kotlin(Plugins.kapt)
+    id(Plugins.ksp)
 }
 
 android {
@@ -69,6 +72,31 @@ dependencies {
     //accompanist
     implementation(Libraries.accompanistSystemUiController)
 
+    //dagger
+    implementation(Libraries.daggerHilt)
+    kapt(Libraries.daggerHiltCompiler)
+    kapt(Libraries.hiltCompiler)
+    implementation(Libraries.hiltNavigation)
+
+    //retrofit
+    implementation(Libraries.retrofit)
+    implementation(Libraries.converterGson)
+    implementation(Libraries.loggingInterceptor)
+
+    //pagination
+    implementation(Libraries.pagination)
+    implementation(Libraries.paginationCompose)
+
+    //room
+    implementation(Libraries.room)
+    implementation(Libraries.roomKtx)
+    ksp(Libraries.roomCompiler)
+
+    //coil
+    implementation(Libraries.coil)
+
+    //shimmer
+    implementation(Libraries.shimmer)
 
     //test
     testImplementation(TestLibraries.junit)
@@ -80,4 +108,8 @@ dependencies {
     //debug
     debugImplementation(Debug.composeUiTooling)
     debugImplementation(Debug.composeUiTestManifest)
+}
+
+kapt {
+    correctErrorTypes = true
 }
