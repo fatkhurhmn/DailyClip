@@ -6,6 +6,8 @@ object Versions {
     const val composeBom = "2023.03.00"
     const val composeNavigation = "2.5.3"
 
+    const val materialIcon = "1.0.2"
+
     const val junit = "4.13.2"
     const val extJunit = "1.1.5"
     const val espressoCore = "3.5.1"
@@ -15,8 +17,7 @@ object Versions {
 
 object Libraries {
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
-    const val lifecycleRuntime =
-        "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRumtime}"
+    const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRumtime}"
 
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
     const val composeBom = "androidx.compose:compose-bom:${Versions.composeBom}"
@@ -24,11 +25,11 @@ object Libraries {
     const val composeUiGraphics = "androidx.compose.ui:ui-graphics"
     const val composeUiPreview = "androidx.compose.ui:ui-tooling-preview"
     const val composeMaterial3 = "androidx.compose.material3:material3"
-    const val composeNavigation =
-        "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
+    const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
 
-    const val accompanistSystemUiController =
-        "com.google.accompanist:accompanist-systemuicontroller:${Versions.accompanistSystemUiController}"
+    const val materialIcon = "androidx.compose.material:material-icons-extended:${Versions.materialIcon}"
+
+    const val accompanistSystemUiController = "com.google.accompanist:accompanist-systemuicontroller:${Versions.accompanistSystemUiController}"
 }
 
 object TestLibraries {

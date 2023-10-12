@@ -63,6 +63,9 @@ dependencies {
     implementation(Libraries.composeMaterial3)
     implementation(Libraries.composeNavigation)
 
+    //material icon
+    implementation(Libraries.materialIcon)
+
     //accompanist
     implementation(Libraries.accompanistSystemUiController)
 
