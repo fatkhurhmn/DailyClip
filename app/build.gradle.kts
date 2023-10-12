@@ -63,9 +63,13 @@ dependencies {
     implementation(Libraries.composeMaterial3)
     implementation(Libraries.composeNavigation)
 
+    //accompanist
+    implementation(Libraries.accompanistSystemUiController)
+
+
     //test
     testImplementation(TestLibraries.junit)
-    androidTestImplementation(AndroidTestLibraries.androidXJunit)
+    androidTestImplementation(AndroidTestLibraries.extJunit)
     androidTestImplementation(AndroidTestLibraries.espressoCore)
     androidTestImplementation(platform(AndroidTestLibraries.composeBom))
     androidTestImplementation(AndroidTestLibraries.composeJunit)
