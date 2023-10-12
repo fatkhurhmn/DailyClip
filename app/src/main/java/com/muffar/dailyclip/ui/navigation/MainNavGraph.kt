@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.muffar.dailyclip.presentation.home.HomeScreen
 
 @Composable
 fun MainNavGraph(
@@ -16,7 +17,7 @@ fun MainNavGraph(
         startDestination = Screen.Home.route
     ) {
         composable(route = Screen.Home.route) {
-            Text(text = "Home")
+            HomeScreen()
         }
 
         composable(route = Screen.Discover.route) {

@@ -9,6 +9,7 @@ object DataMapper {
             id = value.id,
             title = value.title,
             poster = value.poster,
+            backdrop = value.backdrop,
             rating = value.rating
         )
 }

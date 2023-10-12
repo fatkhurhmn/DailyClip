@@ -31,7 +31,7 @@ android {
 
         buildConfigField("String", "API_KEY", localProperties.getProperty("API_KEY"))
         buildConfigField("String", "BASE_URL_API", localProperties.getProperty("BASE_URL_API"))
-        buildConfigField("String", "BASE_URL_API", localProperties.getProperty("BASE_URL_API"))
+        buildConfigField("String", "BASE_URL_IMAGE", localProperties.getProperty("BASE_URL_IMAGE"))
         android.buildFeatures.buildConfig = true
     }
 
