@@ -14,14 +14,15 @@ import androidx.compose.ui.unit.dp
 import com.muffar.dailyclip.ui.common.RetryLoadData
 
 @Composable
-fun NowPlayingError(
+fun MoviesError(
+    modifier: Modifier = Modifier,
     message: String,
     onRetry: () -> Unit,
 ) {
     Card(
-        modifier = Modifier
+        modifier = modifier
             .padding(horizontal = 16.dp)
-            .height(200.dp)
+            .height(180.dp)
             .fillMaxWidth()
             .clip(MaterialTheme.shapes.medium),
         shape = MaterialTheme.shapes.medium,

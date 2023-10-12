@@ -1,6 +1,5 @@
 package com.muffar.dailyclip.presentation.home
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -38,7 +37,6 @@ class HomeViewModel @Inject constructor(
     }
 
     fun getNowPlayingMovies() {
-        Log.d("TAG", "getMovies4: ")
         viewModelScope.launch {
             movieUseCases.getMovies(ListType.NowPlaying).onEach { result ->
                 when (result) {
@@ -88,7 +86,7 @@ class HomeViewModel @Inject constructor(
 
                     else -> {}
                 }
-            }
+            }.launchIn(viewModelScope)
         }
     }
 

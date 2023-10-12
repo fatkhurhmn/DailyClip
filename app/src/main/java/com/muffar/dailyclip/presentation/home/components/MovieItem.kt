@@ -42,7 +42,7 @@ fun MovieItem(
 
     Card(
         modifier = modifier
-            .width(170.dp)
+            .width(120.dp)
             .clip(MaterialTheme.shapes.small)
             .clickable(onClick = onClick),
         shape = MaterialTheme.shapes.small,
@@ -64,15 +64,14 @@ fun MovieItem(
             ) {
                 AsyncImage(
                     model = ImageRequest.Builder(ctx)
-                        .data(BuildConfig.BASE_URL_API + poster)
+                        .data(BuildConfig.BASE_URL_IMAGE + poster)
                         .placeholder(R.drawable.img_poster_placeholder)
-                        .error(R.drawable.img_poster_placeholder)
                         .crossfade(true)
                         .build(),
                     contentDescription = title,
-                    contentScale = ContentScale.FillHeight,
+                    contentScale = ContentScale.Crop,
                     modifier = Modifier
-                        .height(170.dp)
+                        .height(180.dp)
                         .align(Alignment.CenterHorizontally)
                         .graphicsLayer(
                             clip = true,

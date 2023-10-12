@@ -16,11 +16,13 @@ fun HomeSection(
     content: @Composable () -> Unit,
 ) {
     Column {
-        Text(
-            text = title,
-            style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.padding(horizontal = 16.dp)
-        )
+        if (title.isNotEmpty()){
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
+        }
         Spacer(modifier = Modifier.height(6.dp))
         content()
     }

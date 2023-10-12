@@ -13,7 +13,7 @@ import com.muffar.dailyclip.ui.common.Shimmering
 import com.muffar.dailyclip.ui.theme.DailyClipTheme
 
 @Composable
-fun NowPlayingLoading() {
+fun NowPlayingMoviesLoading() {
     LazyRow(
         contentPadding = PaddingValues(horizontal = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -33,6 +33,6 @@ fun NowPlayingLoading() {
 @Composable
 fun NowPlayingLoadingPreview() {
     DailyClipTheme {
-        NowPlayingLoading()
+        NowPlayingMoviesLoading()
     }
 }

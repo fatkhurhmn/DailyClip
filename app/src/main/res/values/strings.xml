@@ -4,4 +4,5 @@
     <string name="menu_discover">Discover</string>
     <string name="menu_favorite">Favorite</string>
     <string name="now_playing">Now Playing</string>
+    <string name="popular_movie">Popular</string>
 </resources>

@@ -4,8 +4,6 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -37,7 +35,7 @@ import kotlinx.coroutines.yield
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun NowPlayingList(
+fun NowPlayingMoviesContent(
     modifier: Modifier = Modifier,
     content: List<Movie>,
     onClick: (Movie) -> Unit,
@@ -55,9 +53,8 @@ fun NowPlayingList(
         }
     }
 
-    Column(
+    Box(
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         HorizontalPager(
             pageCount = content.size,
@@ -113,7 +110,12 @@ fun NowPlayingList(
                 }
             }
         }
-        Spacer(modifier = Modifier.height(4.dp))
-        SlideIndicator(indicatorCount = content.size, selectedIndicator = pagerState.currentPage)
+        SlideIndicator(
+            indicatorCount = content.size,
+            selectedIndicator = pagerState.currentPage,
+            modifier = Modifier
+                .padding(top = 8.dp)
+                .align(Alignment.TopCenter)
+        )
     }
 }
