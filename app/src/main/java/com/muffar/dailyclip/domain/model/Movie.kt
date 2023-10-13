@@ -11,4 +11,5 @@ data class Movie(
     val overview: String? = "",
     val runtime: Int? = 0,
     val releaseDate: String? = "",
+    val trailer: String? = "",
 )

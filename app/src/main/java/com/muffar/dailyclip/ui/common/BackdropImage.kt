@@ -1,4 +1,4 @@
-package com.muffar.dailyclip.presentation.detail.components
+package com.muffar.dailyclip.ui.common
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

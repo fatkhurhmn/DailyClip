@@ -27,11 +27,13 @@ fun DetailScreen(
     viewModel: DetailViewModel = hiltViewModel(),
     movieId: Int,
     navigateUp: () -> Unit,
+    navigateToYoutube: (String) -> Unit,
 ) {
     val state = viewModel.state.value
 
     LaunchedEffect(movieId) {
         viewModel.getMovieDetail(movieId)
+        viewModel.getMovieTrailer(movieId)
     }
 
     Column(
@@ -58,7 +60,9 @@ fun DetailScreen(
         state.movie?.let {
             DetailContent(
                 movie = it,
-                onBackPress = navigateUp
+                onBackPress = navigateUp,
+                onClickSave = { },
+                navigateToYoutube = { navigateToYoutube(state.movie.trailer ?: "") },
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(

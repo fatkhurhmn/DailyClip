@@ -4,6 +4,7 @@ import com.muffar.dailyclip.data.Resource
 import com.muffar.dailyclip.data.source.remote.MovieApi
 import com.muffar.dailyclip.domain.model.Movie
 import com.muffar.dailyclip.domain.repository.MovieRepository
+import com.muffar.dailyclip.utils.Constants
 import com.muffar.dailyclip.utils.DataMapper
 import com.muffar.dailyclip.utils.ListType
 import kotlinx.coroutines.Dispatchers
@@ -42,6 +43,17 @@ class MovieRepositoryImpl(
             val response = movieApi.getMovieDetail(id)
             val data = DataMapper.mapMovieDetailResponseToMovie(response)
             emit(Resource.Success(data))
+        } catch (e: Exception) {
+            emit(Resource.Error(e.message ?: ""))
+        }
+    }
+
+    override suspend fun getMovieVTrailer(id: Int): Flow<Resource<String>> = flow {
+        emit(Resource.Loading)
+        try {
+            val response = movieApi.getMovieVideos(id)
+            val data = response.results?.filter { it.type == Constants.TRAILER_KEY }?.get(0)?.key
+            emit(Resource.Success(data ?: ""))
         } catch (e: Exception) {
             emit(Resource.Error(e.message ?: ""))
         }

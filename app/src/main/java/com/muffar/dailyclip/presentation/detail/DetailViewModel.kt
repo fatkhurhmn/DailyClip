@@ -46,4 +46,33 @@ class DetailViewModel @Inject constructor(
             }.launchIn(viewModelScope)
         }
     }
+
+    fun getMovieTrailer(id: Int) {
+        viewModelScope.launch {
+            movieUseCases.getMovieTrailer(id).onEach { result ->
+                when (result) {
+                    is Resource.Loading -> _state.value = state.value.copy(
+                        isLoading = true,
+                        isError = false
+                    )
+
+                    is Resource.Success -> {
+                        _state.value = state.value.copy(
+                            isLoading = false,
+                            isError = false,
+                            movie = state.value.movie?.copy(trailer = result.value)
+                        )
+                    }
+
+                    is Resource.Error -> _state.value = state.value.copy(
+                        isLoading = false,
+                        isError = true,
+                        errorMessage = result.message
+                    )
+
+                    else -> {}
+                }
+            }.launchIn(viewModelScope)
+        }
+    }
 }

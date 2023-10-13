@@ -12,19 +12,22 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.rounded.BookmarkAdd
-import androidx.compose.material.icons.rounded.Language
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.muffar.dailyclip.R
 import com.muffar.dailyclip.domain.model.Movie
 import com.muffar.dailyclip.ui.common.BackNavigationButton
+import com.muffar.dailyclip.ui.common.BackdropImage
 import com.muffar.dailyclip.ui.common.PosterImage
 import com.muffar.dailyclip.utils.convertMinutesToHoursAndMinutes
 import com.muffar.dailyclip.utils.formatIsoDateToCustomFormat
@@ -34,6 +37,8 @@ fun DetailContent(
     modifier: Modifier = Modifier,
     movie: Movie,
     onBackPress: () -> Unit,
+    navigateToYoutube: () -> Unit,
+    onClickSave: () -> Unit,
 ) {
     Box(
         modifier = modifier
@@ -69,6 +74,7 @@ fun DetailContent(
                         lineHeight = 18.sp
                     ),
                 )
+
                 Spacer(modifier = Modifier.height(6.dp))
 
                 val genres = movie.genres ?: emptyList()
@@ -109,32 +115,32 @@ fun DetailContent(
                     style = MaterialTheme.typography.bodySmall,
                 )
 
-                Spacer(modifier = Modifier.height(6.dp))
+                Spacer(modifier = Modifier.height(8.dp))
 
                 Row {
                     Button(
-                        onClick = {},
+                        onClick = navigateToYoutube,
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.secondary
-                        )
+                            containerColor = MaterialTheme.colorScheme.secondary,
+                        ),
+                        enabled = !movie.trailer.isNullOrEmpty()
                     ) {
-                        Icon(
-                            imageVector = Icons.Rounded.BookmarkAdd,
-                            contentDescription = null
+                        Text(
+                            text = stringResource(R.string.watch_trailer),
+                            style = MaterialTheme.typography.labelLarge
                         )
                     }
 
                     Spacer(modifier = Modifier.width(16.dp))
 
-                    Button(
-                        onClick = {},
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.secondary
-                        )
+                    IconButton(
+                        onClick = onClickSave,
                     ) {
                         Icon(
-                            imageVector = Icons.Rounded.Language,
-                            contentDescription = null
+                            imageVector = Icons.Rounded.BookmarkAdd,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.secondary,
+                            modifier = Modifier.size(30.dp)
                         )
                     }
                 }
