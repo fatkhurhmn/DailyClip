@@ -1,5 +1,6 @@
 package com.muffar.dailyclip.utils
 
+import com.muffar.dailyclip.data.source.local.MovieEntity
 import com.muffar.dailyclip.data.source.remote.response.MovieDetailResponse
 import com.muffar.dailyclip.data.source.remote.response.MovieItemResponse
 import com.muffar.dailyclip.domain.model.Movie
@@ -29,4 +30,24 @@ object DataMapper {
             releaseDate = value.releaseDate
         )
     }
+
+    fun mapMovieToMovieEntity(value: Movie): MovieEntity =
+        MovieEntity(
+            id = value.id,
+            title = value.title,
+            overview = value.overview,
+            rating = value.rating,
+            poster = value.poster,
+            releaseDate = value.releaseDate
+        )
+
+    fun mapMovieEntityToMovie(value: MovieEntity): Movie =
+        Movie(
+            id = value.id,
+            title = value.title,
+            overview = value.overview,
+            rating = value.rating,
+            poster = value.poster,
+            releaseDate = value.releaseDate
+        )
 }

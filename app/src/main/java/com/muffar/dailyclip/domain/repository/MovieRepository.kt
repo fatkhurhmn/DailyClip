@@ -9,4 +9,8 @@ interface MovieRepository {
     suspend fun getMovies(listType: ListType): Flow<Resource<List<Movie>>>
     suspend fun getMovieDetail(id: Int): Flow<Resource<Movie>>
     suspend fun getMovieVTrailer(id: Int): Flow<Resource<String>>
+    suspend fun addToFavorite(movie: Movie)
+    suspend fun deleteFromFavorite(movie: Movie)
+    fun getMovieById(id: Int): Movie?
+    fun getFavoriteMovies(): Flow<List<Movie>>
 }
