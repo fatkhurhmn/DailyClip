@@ -29,6 +29,7 @@ import com.muffar.dailyclip.R
 import com.muffar.dailyclip.domain.model.Movie
 import com.muffar.dailyclip.ui.common.BackNavigationButton
 import com.muffar.dailyclip.ui.common.BackdropImage
+import com.muffar.dailyclip.ui.common.GenreList
 import com.muffar.dailyclip.ui.common.PosterImage
 import com.muffar.dailyclip.utils.convertMinutesToHoursAndMinutes
 import com.muffar.dailyclip.utils.formatIsoDateToCustomFormat

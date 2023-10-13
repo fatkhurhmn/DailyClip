@@ -31,23 +31,27 @@ object DataMapper {
         )
     }
 
-    fun mapMovieToMovieEntity(value: Movie): MovieEntity =
-        MovieEntity(
+    fun mapMovieToMovieEntity(value: Movie): MovieEntity {
+        val genres = value.genres?.joinToString(",")
+        return MovieEntity(
             id = value.id,
             title = value.title,
-            overview = value.overview,
+            genres = genres,
             rating = value.rating,
             poster = value.poster,
             releaseDate = value.releaseDate
         )
+    }
 
-    fun mapMovieEntityToMovie(value: MovieEntity): Movie =
-        Movie(
+    fun mapMovieEntityToMovie(value: MovieEntity): Movie {
+        val genres = value.genres?.split(",")
+        return Movie(
             id = value.id,
             title = value.title,
-            overview = value.overview,
+            genres = genres,
             rating = value.rating,
             poster = value.poster,
             releaseDate = value.releaseDate
         )
+    }
 }

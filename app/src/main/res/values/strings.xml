@@ -9,4 +9,6 @@
     <string name="upcoming">Upcoming</string>
     <string name="overview">Overview</string>
     <string name="watch_trailer">Watch trailer</string>
+    <string name="no_favorite_movie">No favorite movie</string>
+    <string name="no_results_found">No result found</string>
 </resources>

@@ -81,7 +81,13 @@ fun DetailScreen(
                         .padding(horizontal = 8.dp)
                         .fillMaxSize(),
                     errorMessage = state.errorMessage,
-                    onRetry = { viewModel.getMovieDetail(movieId) }
+                    onRetry = {
+                        viewModel.apply {
+                            getMovieDetail(movieId)
+                            getMovieTrailer(movieId)
+                            getMovieById(movieId)
+                        }
+                    }
                 )
             }
 
