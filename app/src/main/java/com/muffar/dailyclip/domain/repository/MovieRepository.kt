@@ -11,6 +11,6 @@ interface MovieRepository {
     suspend fun getMovieVTrailer(id: Int): Flow<Resource<String>>
     suspend fun addToFavorite(movie: Movie)
     suspend fun deleteFromFavorite(movie: Movie)
-    fun getMovieById(id: Int): Movie?
+    suspend fun getMovieById(id: Int): Movie?
     fun getFavoriteMovies(): Flow<List<Movie>>
 }

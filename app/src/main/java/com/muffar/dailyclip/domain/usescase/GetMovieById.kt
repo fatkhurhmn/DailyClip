@@ -6,7 +6,7 @@ import com.muffar.dailyclip.domain.repository.MovieRepository
 class GetMovieById(
     private val movieRepository: MovieRepository,
 ) {
-    operator fun invoke(id: Int): Movie? {
+    operator suspend fun invoke(id: Int): Movie? {
         return movieRepository.getMovieById(id)
     }
 }

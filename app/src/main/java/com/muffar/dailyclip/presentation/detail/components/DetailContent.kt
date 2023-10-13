@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.BookmarkRemove
 import androidx.compose.material.icons.rounded.BookmarkAdd
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -36,6 +37,7 @@ import com.muffar.dailyclip.utils.formatIsoDateToCustomFormat
 fun DetailContent(
     modifier: Modifier = Modifier,
     movie: Movie,
+    isFavorite: Boolean,
     onBackPress: () -> Unit,
     navigateToYoutube: () -> Unit,
     onClickSave: () -> Unit,
@@ -137,7 +139,7 @@ fun DetailContent(
                         onClick = onClickSave,
                     ) {
                         Icon(
-                            imageVector = Icons.Rounded.BookmarkAdd,
+                            imageVector = if (isFavorite) Icons.Outlined.BookmarkRemove else Icons.Rounded.BookmarkAdd,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.secondary,
                             modifier = Modifier.size(30.dp)

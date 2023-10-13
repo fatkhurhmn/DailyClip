@@ -72,7 +72,7 @@ class MovieRepositoryImpl(
         movieDao.deleteFromFavorite(movieEntity)
     }
 
-    override fun getMovieById(id: Int): Movie? {
+    override suspend fun getMovieById(id: Int): Movie? {
         val movieEntity = movieDao.getMovieById(id)
 
         return if (movieEntity == null) {

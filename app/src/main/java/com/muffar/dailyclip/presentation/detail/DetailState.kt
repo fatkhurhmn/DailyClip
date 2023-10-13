@@ -7,4 +7,5 @@ data class DetailState(
     val isLoading: Boolean = true,
     val isError: Boolean = false,
     val errorMessage: String = "",
+    val isFavorite: Boolean = false,
 )
