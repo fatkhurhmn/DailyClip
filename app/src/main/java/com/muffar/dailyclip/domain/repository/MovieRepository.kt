@@ -1,5 +1,6 @@
 package com.muffar.dailyclip.domain.repository
 
+import androidx.paging.PagingData
 import com.muffar.dailyclip.data.Resource
 import com.muffar.dailyclip.domain.model.Movie
 import com.muffar.dailyclip.utils.ListType
@@ -13,4 +14,5 @@ interface MovieRepository {
     suspend fun deleteFromFavorite(movie: Movie)
     suspend fun getMovieById(id: Int): Movie?
     fun getFavoriteMovies(): Flow<List<Movie>>
+    suspend fun searchMovies(query: String): Flow<PagingData<Movie>>
 }

@@ -13,6 +13,10 @@ fun Int.convertMinutesToHoursAndMinutes(): String {
 fun String.formatIsoDateToCustomFormat(): String {
     val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
     val outputFormat = SimpleDateFormat("MMMM dd, yyyy", Locale.US)
-    val date = inputFormat.parse(this) ?: ""
-    return outputFormat.format(date)
+    return try {
+        val date = inputFormat.parse(this) ?: ""
+        outputFormat.format(date)
+    } catch (e: Exception) {
+        ""
+    }
 }

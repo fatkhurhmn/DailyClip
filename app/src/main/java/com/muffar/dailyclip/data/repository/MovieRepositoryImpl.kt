@@ -1,8 +1,12 @@
 package com.muffar.dailyclip.data.repository
 
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import com.muffar.dailyclip.data.Resource
 import com.muffar.dailyclip.data.source.local.MovieDao
 import com.muffar.dailyclip.data.source.remote.MovieApi
+import com.muffar.dailyclip.data.source.remote.SearchPagingSource
 import com.muffar.dailyclip.domain.model.Movie
 import com.muffar.dailyclip.domain.repository.MovieRepository
 import com.muffar.dailyclip.utils.Constants
@@ -88,5 +92,14 @@ class MovieRepositoryImpl(
             it.map { movieEntity -> DataMapper.mapMovieEntityToMovie(movieEntity) }
         }
         return movies
+    }
+
+    override suspend fun searchMovies(query: String): Flow<PagingData<Movie>> {
+        return Pager(
+            config = PagingConfig(pageSize = 10),
+            pagingSourceFactory = {
+                SearchPagingSource(movieApi, query)
+            }
+        ).flow
     }
 }

@@ -12,6 +12,7 @@ import com.muffar.dailyclip.domain.usescase.GetMovieDetail
 import com.muffar.dailyclip.domain.usescase.GetMovieTrailer
 import com.muffar.dailyclip.domain.usescase.GetMovies
 import com.muffar.dailyclip.domain.usescase.MovieUseCases
+import com.muffar.dailyclip.domain.usescase.SearchMovies
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,6 +42,7 @@ object AppModule {
             addToFavorite = AddToFavorite(movieRepository),
             deleteFromFavorite = DeleteFromFavorite(movieRepository),
             getMovieById = GetMovieById(movieRepository),
-            getFavoriteMovies = GetFavoriteMovies(movieRepository)
+            getFavoriteMovies = GetFavoriteMovies(movieRepository),
+            searchMovies = SearchMovies(movieRepository)
         )
 }

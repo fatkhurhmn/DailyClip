@@ -7,5 +7,6 @@ data class MovieUseCases(
     val addToFavorite: AddToFavorite,
     val deleteFromFavorite: DeleteFromFavorite,
     val getMovieById: GetMovieById,
-    val getFavoriteMovies: GetFavoriteMovies
+    val getFavoriteMovies: GetFavoriteMovies,
+    val searchMovies: SearchMovies
 )

@@ -3,17 +3,16 @@ package com.muffar.dailyclip.ui.navigation
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.muffar.dailyclip.presentation.detail.DetailScreen
+import com.muffar.dailyclip.presentation.discover.SearchScreen
 import com.muffar.dailyclip.presentation.favorite.FavoriteScreen
 import com.muffar.dailyclip.presentation.home.HomeScreen
 import com.muffar.dailyclip.utils.Constants
-
 
 @Composable
 fun MainNavGraph(
@@ -40,7 +39,15 @@ fun MainNavGraph(
         }
 
         composable(route = Screen.Discover.route) {
-            Text(text = "Discover")
+            SearchScreen(
+                navigateToDetail = { movieId ->
+                    navController.currentBackStackEntry?.savedStateHandle?.set(
+                        Constants.MOVIE_ID_KEY,
+                        movieId
+                    )
+                    navController.navigate(Screen.Detail.route)
+                }
+            )
         }
 
         composable(route = Screen.Favorite.route) {

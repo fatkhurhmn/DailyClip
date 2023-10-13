@@ -6,6 +6,7 @@ import com.muffar.dailyclip.data.source.remote.response.MovieVideosResponse
 import com.muffar.dailyclip.data.source.remote.response.WrappedPaginationResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface MovieApi {
 
@@ -30,4 +31,10 @@ interface MovieApi {
     suspend fun getMovieVideos(
         @Path("movie_id") id: Int,
     ): MovieVideosResponse
+
+    @GET("search/movie")
+    suspend fun searchMovies(
+        @Query("page") page: Int,
+        @Query("query") query: String,
+    ): WrappedPaginationResponse<MovieItemResponse>
 }
