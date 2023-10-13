@@ -24,6 +24,7 @@ fun PosterImage(
         model = ImageRequest.Builder(context)
             .data(BuildConfig.BASE_URL_IMAGE + url)
             .placeholder(R.drawable.img_poster_placeholder)
+            .error(R.drawable.img_poster_error)
             .crossfade(true)
             .build(),
         contentDescription = null,

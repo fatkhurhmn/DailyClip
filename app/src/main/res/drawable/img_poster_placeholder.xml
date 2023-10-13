@@ -5,6 +5,9 @@
     android:viewportHeight="55">
     <group>
         <path
+            android:fillColor="#FFEBEBEB"
+            android:pathData="M35 0v55H0V0z"/>
+        <path
             android:fillColor="#FFC9C9C9"
             android:pathData="M26 18c0.53 0 1.04 0.21 1.41 0.59C27.8 18.96 28 19.47 28 20v14c0 0.53-0.21 1.04-0.59 1.41C27.04 35.8 26.53 36 26 36H10c-0.53 0-1.04-0.21-1.41-0.59C8.2 35.04 8 34.53 8 34V20c0-0.53 0.21-1.04 0.59-1.41C8.96 18.2 9.47 18 10 18h16Zm-4 2h-8v14h8V20Zm4 12h-2v2h2v-2Zm-14 0h-2v2h2v-2Zm14-4h-2v2h2v-2Zm-14 0h-2v2h2v-2Zm14-4h-2v2h2v-2Zm-14 0h-2v2h2v-2Zm14-4h-2v2h2v-2Zm-14 0h-2v2h2v-2Z"/>
     </group>

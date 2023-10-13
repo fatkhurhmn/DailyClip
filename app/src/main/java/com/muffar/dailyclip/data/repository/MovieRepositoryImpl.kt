@@ -59,8 +59,12 @@ class MovieRepositoryImpl(
         emit(Resource.Loading)
         try {
             val response = movieApi.getMovieVideos(id)
-            val data = response.results?.filter { it.type == Constants.TRAILER_KEY }?.get(0)?.key
-            emit(Resource.Success(data ?: ""))
+            val data = response.results?.filter { it.type == Constants.TRAILER_KEY }
+            if (data?.isEmpty() == true) {
+                emit(Resource.Success(""))
+            } else {
+                emit(Resource.Success(data?.get(0)?.key ?: ""))
+            }
         } catch (e: Exception) {
             emit(Resource.Error(e.message ?: ""))
         }
